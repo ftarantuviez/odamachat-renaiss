@@ -1,0 +1,18 @@
+.navbar {
+  width: 100%;
+  padding: 20px;
+  background-color: #f97316;
+  display: flex;
+  justify-content: space-between;
+
+  &__left {
+    display: flex;
+    &__sidebar {
+      margin-left: 10px;
+    }
+  }
+
+  &__right {
+    padding-right: 30px;
+  }
+}
