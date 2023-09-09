@@ -1,0 +1,71 @@
+.historyCard {
+  h5 {
+    font-weight: 600;
+    font-size: 16px;
+    color: #1e293b;
+  }
+
+  &__divider {
+    margin: 10px 0;
+    position: absolute;
+    left: 0;
+  }
+
+  &__list {
+    margin-top: 30px;
+  }
+}
+
+.historyItem {
+  padding: 10px 20px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  &__left {
+    display: flex;
+    align-items: center;
+    span {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px;
+      height: 30px;
+      padding: 2px;
+      border-radius: 50%;
+      background-color: #fdba74;
+      color: white;
+      margin-right: 10px;
+
+      svg {
+        width: 18px;
+        height: 18px;
+      }
+    }
+
+    p {
+      font-size: 16px;
+      font-weight: 500;
+      color: #1e293b;
+    }
+
+    &__time {
+      display: flex;
+      align-items: center;
+      p {
+        font-size: 13px;
+        font-weight: 500;
+        color: #94a3b8;
+      }
+
+      svg {
+        width: 14px;
+        height: 14px;
+        margin-right: 5px;
+        color: #94a3b8;
+      }
+    }
+  }
+
+  &__active {
+    background-color: #ffedd580;
+  }
+}
