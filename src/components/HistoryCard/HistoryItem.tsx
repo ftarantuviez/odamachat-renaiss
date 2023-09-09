@@ -2,6 +2,8 @@ import React, { FC } from "react";
 
 import { BsSearch } from "react-icons/bs";
 import { TbHistoryToggle } from "react-icons/tb";
+import { AiOutlineCheck, AiOutlineClose } from "react-icons/ai";
+import { BiTrashAlt } from "react-icons/bi";
 
 import styles from "./HistoryCard.module.scss";
 
@@ -32,6 +34,22 @@ export const HistoryItem: FC<HistoryItemProps> = ({
             <p>{time}</p>
           </div>
         </div>
+      </div>
+      <div className={styles.historyItem__right}>
+        {isActive ? (
+          <div>
+            <button>
+              <AiOutlineCheck />
+            </button>
+            <button>
+              <AiOutlineClose />
+            </button>
+          </div>
+        ) : (
+          <button>
+            <BiTrashAlt />
+          </button>
+        )}
       </div>
     </div>
   );
