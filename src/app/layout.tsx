@@ -1,6 +1,7 @@
 import { NavBar } from "@/components/NavBar";
 import "./globals.css";
 import type { Metadata } from "next";
+import ChatProvider from "@/contexts/ChatContext";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -13,11 +14,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body>
-        <NavBar />
-        {children}
-      </body>
-    </html>
+    <ChatProvider>
+      <html lang="en">
+        <body>
+          <NavBar />
+          {children}
+        </body>
+      </html>
+    </ChatProvider>
   );
 }

@@ -1,16 +1,23 @@
-import React from "react";
+import React, { FC } from "react";
 
-import { Divider } from "antd";
+import { AiOutlinePlusCircle } from "react-icons/ai";
 
 import { Card } from "../Card";
 import { Button } from "../Button";
-
-import styles from "./ChatCard.module.scss";
 import { MessageCard } from "../MessageCard";
 import { PromptInput } from "../PromptInput";
-import { AiOutlinePlusCircle } from "react-icons/ai";
 
-export const ChatCard = () => {
+import { ChatMessage } from "../../../types/Chat";
+
+import styles from "./ChatCard.module.scss";
+
+type ChatCardProps = {
+  messages: ChatMessage[];
+  loading: boolean;
+};
+export const ChatCard: FC<ChatCardProps> = ({ messages, loading }) => {
+  const lastMessage = messages[messages.length - 1];
+
   return (
     <div className={styles.chatCard}>
       <Card className={styles.chatCard__header}>
@@ -23,7 +30,16 @@ export const ChatCard = () => {
         </div>
       </Card>
       <div className={styles.chat}>
-        <MessageCard />
+        {messages?.map((message) => (
+          <MessageCard
+            key={message.content}
+            message={message.content}
+            role={message.role}
+          />
+        ))}
+        {lastMessage?.role === "user" && loading && (
+          <MessageCard message="" role="assistant" loading />
+        )}
       </div>
       <Card className={styles.chatCard__bottom}>
         <PromptInput />

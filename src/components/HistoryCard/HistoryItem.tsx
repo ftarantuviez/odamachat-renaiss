@@ -1,4 +1,5 @@
-import React, { FC } from "react";
+"use client";
+import React, { FC, useState } from "react";
 
 import { BsSearch } from "react-icons/bs";
 import { TbHistoryToggle } from "react-icons/tb";
@@ -8,19 +9,17 @@ import { BiTrashAlt } from "react-icons/bi";
 import styles from "./HistoryCard.module.scss";
 
 type HistoryItemProps = {
-  isActive: boolean;
   title: string;
   time: string;
 };
-export const HistoryItem: FC<HistoryItemProps> = ({
-  isActive,
-  title,
-  time,
-}) => {
+export const HistoryItem: FC<HistoryItemProps> = ({ title, time }) => {
+  const [isDeleteActive, setIsDeleteActive] = useState<boolean>(false);
+
+  const onClickDelete = () => setIsDeleteActive(!isDeleteActive);
   return (
     <div
       className={`${styles.historyItem} ${
-        isActive && styles.historyItem__active
+        isDeleteActive && styles.historyItem__active
       }`}
     >
       <div className={styles.historyItem__left}>
@@ -36,17 +35,17 @@ export const HistoryItem: FC<HistoryItemProps> = ({
         </div>
       </div>
       <div className={styles.historyItem__right}>
-        {isActive ? (
+        {isDeleteActive ? (
           <div>
             <button>
               <AiOutlineCheck />
             </button>
-            <button>
+            <button onClick={onClickDelete}>
               <AiOutlineClose />
             </button>
           </div>
         ) : (
-          <button>
+          <button onClick={onClickDelete}>
             <BiTrashAlt />
           </button>
         )}

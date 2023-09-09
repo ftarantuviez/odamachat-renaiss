@@ -1,3 +1,7 @@
+.messageCard {
+  margin-bottom: 10px;
+}
+
 .header {
   display: flex;
   align-items: center;
@@ -12,6 +16,11 @@
     font-weight: 500;
     font-size: 13px;
   }
+
+  svg {
+    color: #f97316;
+    font-size: 20px;
+  }
 }
 
 .divider {
@@ -23,4 +32,8 @@
   color: #1e293b;
   font-weight: 500;
   line-height: 25px;
+}
+
+.assistant {
+  color: #f97316 !important;
 }

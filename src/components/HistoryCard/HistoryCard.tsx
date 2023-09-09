@@ -25,12 +25,7 @@ export const HistoryCard = () => {
       <Divider className={styles.historyCard__divider} />
       <div className={styles.historyCard__list}>
         {MOCK_DATA.map((item) => (
-          <HistoryItem
-            key={item.id}
-            isActive={item.isActive}
-            time={item.time}
-            title={item.title}
-          />
+          <HistoryItem key={item.id} time={item.time} title={item.title} />
         ))}
       </div>
     </Card>

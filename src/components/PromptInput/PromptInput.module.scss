@@ -9,4 +9,13 @@
     width: 18px;
     height: 18px;
   }
+
+  button {
+    border: none;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
 }

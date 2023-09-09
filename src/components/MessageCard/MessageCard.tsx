@@ -1,20 +1,34 @@
-import React from "react";
+import React, { FC } from "react";
 import { Divider } from "antd";
 
 import { Card } from "../Card";
 
 import styles from "./MessageCard.module.scss";
+import { BsThreeDots } from "react-icons/bs";
 
-export const MessageCard = () => {
+type MessageCardProps = {
+  time?: string;
+  message: string;
+  role: "user" | "assistant";
+  loading?: boolean;
+};
+export const MessageCard: FC<MessageCardProps> = ({
+  message,
+  role,
+  loading,
+}) => {
+  const isUserRole = role === "user";
   return (
-    <Card>
+    <Card className={styles.messageCard}>
       <div className={styles.header}>
-        <h5>Ana Clara</h5>
-        <p>5:00pm</p>
+        <h5 className={!isUserRole ? styles.assistant : ""}>
+          {isUserRole ? "Francisco Tarantuviez" : "OdamaChat"}
+        </h5>
+        {loading ? <BsThreeDots /> : <p>5:00pm</p>}
       </div>
       <Divider className={styles.divider} />
       <div className={styles.message}>
-        <p>Necesito los archivos que te pedí ayer.</p>
+        <p>{message}</p>
       </div>
     </Card>
   );
