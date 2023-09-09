@@ -8,4 +8,11 @@
   font-size: 14px;
   display: flex;
   align-items: center;
+
+  &__contained {
+    background-color: #f97316;
+    color: white;
+    border-radius: 6px;
+    padding: 10px 20px;
+  }
 }
