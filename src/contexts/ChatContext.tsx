@@ -60,17 +60,15 @@ const ChatProvider: FC<ChatProviderProps> = ({ children }) => {
         temperature: OPENAI_TEMP,
         model: OPENAI_MODEL,
         max_tokens: MAX_TOKENS,
-        messages: updatedChat,
+        messages: updatedChat.map((m) => ({
+          content: m.content,
+          role: m.role,
+        })),
       };
-      /*  const { data } = await axios.post<OpenAIResponse>(BASE_URL, body, {
+      const { data } = await axios.post<OpenAIResponse>(BASE_URL, body, {
         headers,
       });
-      const response = data.choices[0]?.message; */
-      const response: ChatMessage = {
-        content: "hello",
-        role: "assistant",
-        time: Date.now(),
-      };
+      const response = { ...data.choices[0]?.message, time: Date.now() };
 
       updatedChat.push(response);
       setCurrentChat({ id, messages: updatedChat, time: Date.now() });

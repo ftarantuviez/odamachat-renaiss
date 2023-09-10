@@ -2,6 +2,7 @@ import React, { FC } from "react";
 
 import { Divider } from "antd";
 import { BsThreeDots } from "react-icons/bs";
+import ReactMarkdown from "react-markdown";
 
 import { Card } from "../Card";
 
@@ -32,7 +33,7 @@ export const MessageCard: FC<MessageCardProps> = ({
       </div>
       <Divider className={styles.divider} />
       <div className={styles.message}>
-        <p>{message}</p>
+        <ReactMarkdown>{message}</ReactMarkdown>
       </div>
     </Card>
   );

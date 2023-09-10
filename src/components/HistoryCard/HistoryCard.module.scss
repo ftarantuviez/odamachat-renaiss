@@ -13,6 +13,8 @@
 
   &__list {
     margin-top: 30px;
+    max-height: 40vh;
+    overflow-y: scroll;
   }
 
   &__emptyState {

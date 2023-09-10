@@ -8,7 +8,6 @@ import { Card } from "../Card";
 import { Chat } from "../../../types/Chat";
 
 import styles from "./HistoryCard.module.scss";
-import { EmptyState } from "../ChatCard";
 
 type HistoryCardProps = {
   history: Chat[];
