@@ -7,22 +7,30 @@ import { AiOutlineCheck, AiOutlineClose } from "react-icons/ai";
 import { BiTrashAlt } from "react-icons/bi";
 
 import styles from "./HistoryCard.module.scss";
+import useChatContext from "@/hooks/useChatContext";
+import { getTimeRemaining } from "./HistoryCard.utils";
 
 type HistoryItemProps = {
   title: string;
-  time: string;
+  time: number;
+  id: string;
 };
-export const HistoryItem: FC<HistoryItemProps> = ({ title, time }) => {
+export const HistoryItem: FC<HistoryItemProps> = ({ title, time, id }) => {
+  const { onRemoveHistoryItem, selectPreviousChat } = useChatContext();
   const [isDeleteActive, setIsDeleteActive] = useState<boolean>(false);
 
   const onClickDelete = () => setIsDeleteActive(!isDeleteActive);
+
   return (
     <div
       className={`${styles.historyItem} ${
         isDeleteActive && styles.historyItem__active
       }`}
     >
-      <div className={styles.historyItem__left}>
+      <div
+        className={styles.historyItem__left}
+        onClick={() => selectPreviousChat(id)}
+      >
         <span>
           <BsSearch />
         </span>
@@ -37,7 +45,7 @@ export const HistoryItem: FC<HistoryItemProps> = ({ title, time }) => {
       <div className={styles.historyItem__right}>
         {isDeleteActive ? (
           <div>
-            <button>
+            <button onClick={() => onRemoveHistoryItem(id)}>
               <AiOutlineCheck />
             </button>
             <button onClick={onClickDelete}>

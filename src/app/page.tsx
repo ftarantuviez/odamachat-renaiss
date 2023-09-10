@@ -1,14 +1,14 @@
 "use client";
 import { Card } from "@/components/Card";
-
-import styles from "./page.module.scss";
 import { PromptInput } from "@/components/PromptInput";
 import { HistoryCard } from "@/components/HistoryCard";
 import { ChatCard } from "@/components/ChatCard";
 import useChatContext from "@/hooks/useChatContext";
 
+import styles from "./page.module.scss";
+
 export default function Home() {
-  const { currentChat, loading } = useChatContext();
+  const { currentChat, loading, onNewSearch, allChatsSaved } = useChatContext();
 
   return (
     <main className={styles.main}>
@@ -22,10 +22,14 @@ export default function Home() {
 
           <PromptInput />
         </Card>
-        <HistoryCard />
+        <HistoryCard history={allChatsSaved} />
       </div>
       <div className={styles.main__right}>
-        <ChatCard messages={currentChat} loading={loading} />
+        <ChatCard
+          messages={currentChat.messages}
+          loading={loading}
+          handleNewSearch={onNewSearch}
+        />
       </div>
     </main>
   );

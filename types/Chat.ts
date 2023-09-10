@@ -1,11 +1,13 @@
 export type ChatMessage = {
   role: "user" | "assistant";
   content: string;
+  time: number;
 };
 
 export type Chat = {
   id: string;
   messages: ChatMessage[];
+  time: number;
 };
 
 export type OpenAIResponse = {
