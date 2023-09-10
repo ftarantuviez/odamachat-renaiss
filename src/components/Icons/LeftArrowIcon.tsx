@@ -12,9 +12,9 @@ export const LeftArrowIcon = () => {
       <path
         d="M12.5 5.50003L7.5 10.5L12.5 15.5"
         stroke="white"
-        stroke-width="1.5625"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1.5625"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );

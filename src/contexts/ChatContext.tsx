@@ -4,13 +4,7 @@ import { createContext, FC, useState } from "react";
 import axios from "axios";
 import { v4 as uuidv4 } from "uuid";
 
-import {
-  API_KEY,
-  BASE_URL,
-  MAX_TOKENS,
-  OPENAI_MODEL,
-  OPENAI_TEMP,
-} from "@/constants";
+import { BASE_URL, MAX_TOKENS, OPENAI_MODEL, OPENAI_TEMP } from "@/constants";
 import { getItemFromStorage, saveChatOnStorage, setItemStorage } from "@/utils";
 
 import { ChatProviderProps, ChatProviderValues } from "./types";
@@ -44,7 +38,7 @@ const ChatProvider: FC<ChatProviderProps> = ({ children }) => {
     setLoading(true);
     try {
       const headers = {
-        Authorization: `Bearer ${API_KEY}`,
+        Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_KEY}`,
       };
       const newMessage: ChatMessage = {
         content: query,

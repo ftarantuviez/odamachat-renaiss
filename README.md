@@ -1,34 +1,49 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## OdamaChat - Renaiss
 
-## Getting Started
+### Descritption ✍️
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+💬 Introducing OdamaChat, your ultimate AI-powered conversational companion. Just like ChatGPT, OdamaChat is designed to provide insightful, engaging, and helpful responses to all your questions and queries. Whether you need assistance with homework, want to spark a fascinating conversation, or seek information on a wide range of topics, OdamaChat is your go-to app.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+With its intuitive interface and cutting-edge AI technology, OdamaChat is here to chat, assist, and enlighten, making every interaction a delightful and informative experience. Say goodbye to information gaps and hello to seamless conversations with OdamaChat. 😎
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Here a video of mine explaining and going through all the platform: [the video](https://www.loom.com/share/33896b3df3bb411390edbbe30e9af5f7?sid=b8d93323-f83d-4c77-a812-656277bb75aa).
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### Technical specifications 👨‍💻
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+#### Stack 📝
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Typescript** (v5.2.2)
+- **React** (v18.2.0)
+- **NextJS** (v13.4.19)
+- **AntD** (v5.9.0)
+- **Next Seo** (v5.15.0)
+- **Eslint** (v8.43.0)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+#### Folder Structure 🗂
 
-## Deploy on Vercel
+- **components**: Here are the elements that can be used in many parts of the code.
+- **constants**: Contains files with data is not gonna change and its used many times.
+- **hooks**: The custom hooks that are gonna be used.
+- **app**: NextJS routes containing the screens that are gonna be rendered.
+- **public**: Public files such us images, favicon and more.
+- **styles**: Global styles and theme configuration.
+- **tests**: To make sure our app is running as it supposed.
+- **types**: Data types used for Typescript purposes.
+- **utils**: Useful functions that could be reused
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+#### Get it running locally 💻
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+1. `git clone git@github.com:ftarantuviez/odamachat-renaiss.git`
+2. `npm install` or `yarn`
+3. `npm run dev` or `yarn dev`
+
+### Deploy 🚀
+
+---
+
+The app is deployed in Vercel.
+You can find a production version in [this url](TODO).

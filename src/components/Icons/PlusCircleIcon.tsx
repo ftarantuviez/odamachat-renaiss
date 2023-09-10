@@ -14,23 +14,23 @@ export const PlusCircleIcon = () => {
         cy="10.5"
         r="7.5"
         stroke="white"
-        stroke-width="1.25"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1.25"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M6.66663 10.5H13.3333"
         stroke="white"
-        stroke-width="1.25"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1.25"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M9.99997 13.8333L9.99997 7.16668"
         stroke="white"
-        stroke-width="1.25"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1.25"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );

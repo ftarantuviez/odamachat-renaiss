@@ -16,6 +16,9 @@ export default function RootLayout({
   return (
     <ChatProvider>
       <html lang="en">
+        <head>
+          <link rel="icon" href="/images/favicon.ico" sizes="any" />
+        </head>
         <body>{children}</body>
       </html>
     </ChatProvider>
