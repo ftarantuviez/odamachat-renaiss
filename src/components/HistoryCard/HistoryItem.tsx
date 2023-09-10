@@ -2,13 +2,15 @@
 import React, { FC, useState } from "react";
 
 import { BsSearch } from "react-icons/bs";
+import { BiTrashAlt } from "react-icons/bi";
 import { TbHistoryToggle } from "react-icons/tb";
 import { AiOutlineCheck, AiOutlineClose } from "react-icons/ai";
-import { BiTrashAlt } from "react-icons/bi";
+
+import useChatContext from "@/hooks/useChatContext";
+
+import { getTimeRemaining, trimLargeText } from "./HistoryCard.utils";
 
 import styles from "./HistoryCard.module.scss";
-import useChatContext from "@/hooks/useChatContext";
-import { getTimeRemaining } from "./HistoryCard.utils";
 
 type HistoryItemProps = {
   title: string;
@@ -35,10 +37,10 @@ export const HistoryItem: FC<HistoryItemProps> = ({ title, time, id }) => {
           <BsSearch />
         </span>
         <div>
-          <p>{title}</p>
+          <p>{trimLargeText(title)}</p>
           <div className={styles.historyItem__left__time}>
             <TbHistoryToggle />
-            <p>{time}</p>
+            <p>{getTimeRemaining(time)}</p>
           </div>
         </div>
       </div>

@@ -19,6 +19,7 @@ export const PromptInput = () => {
     e.preventDefault();
     if (!value) return;
     await getNewPrompt(value);
+    setValue("");
   };
 
   return (

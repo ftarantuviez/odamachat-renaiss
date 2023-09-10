@@ -1,12 +1,16 @@
 export const getItemFromStorage = (key: string) => {
-  const savedValue = localStorage.getItem(key);
-  if (savedValue) {
-    return JSON.parse(savedValue);
+  if (typeof window !== "undefined") {
+    const savedValue = localStorage.getItem(key);
+    if (savedValue) {
+      return JSON.parse(savedValue);
+    }
   }
 
   return "";
 };
 
 export const setItemStorage = (key: string, value: unknown) => {
-  localStorage.setItem(key, JSON.stringify(value));
+  if (typeof window !== "undefined") {
+    localStorage.setItem(key, JSON.stringify(value));
+  }
 };
