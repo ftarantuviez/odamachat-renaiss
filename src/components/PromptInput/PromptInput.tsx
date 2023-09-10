@@ -6,6 +6,7 @@ import { Input } from "antd";
 import { MagicWandIcon, SendIcon } from "../Icons";
 
 import useChatContext from "@/hooks/useChatContext";
+import { MAX_TOKENS } from "@/constants";
 
 import styles from "./PromptInput.module.scss";
 
@@ -41,7 +42,11 @@ export const PromptInput: FC<PromptInputProps> = ({ isNewChat }) => {
         placeholder="Insertar Prompt"
         value={value}
         onChange={onChange}
+        maxLength={MAX_TOKENS}
       />
+      <p className={styles.promptInput__count}>
+        {value.length}/{MAX_TOKENS}
+      </p>
     </form>
   );
 };

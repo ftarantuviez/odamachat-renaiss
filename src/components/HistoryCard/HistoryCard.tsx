@@ -8,6 +8,7 @@ import { Card } from "../Card";
 import { Chat } from "../../../types/Chat";
 
 import styles from "./HistoryCard.module.scss";
+import { EmptyState } from "../ChatCard";
 
 type HistoryCardProps = {
   history: Chat[];
@@ -28,6 +29,11 @@ export const HistoryCard: FC<HistoryCardProps> = ({ history = [] }) => {
             title={item.messages?.[0].content}
           />
         ))}
+        {history.length === 0 && (
+          <div className={styles.historyCard__emptyState}>
+            No tienes búsquedas recientes
+          </div>
+        )}
       </div>
     </Card>
   );

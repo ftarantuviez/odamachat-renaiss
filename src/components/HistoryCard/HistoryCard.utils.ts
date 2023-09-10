@@ -15,7 +15,7 @@ export const getTimeRemaining = (lastMessageTime: number) => {
   const answer =
     lastMessageTime >= currentDate.getTime() ? "Hoy, quedan" : "Ayer, quedan";
 
-  return `${answer} ${hoursLeft + 1}hs`;
+  return `${answer} ${hoursLeft === 24 ? hoursLeft : hoursLeft + 1}hs`;
 };
 
 export const trimLargeText = (str: string, chars = 25) => {

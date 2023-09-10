@@ -9,6 +9,7 @@ import { PlusCircleIcon } from "../Icons";
 import { ChatMessage } from "../../../types/Chat";
 
 import styles from "./ChatCard.module.scss";
+import { EmptyState } from ".";
 
 type ChatCardProps = {
   messages: ChatMessage[];
@@ -42,6 +43,7 @@ export const ChatCard: FC<ChatCardProps> = ({
             role={message.role}
           />
         ))}
+        {messages.length === 0 && <EmptyState />}
         {lastMessage?.role === "user" && loading && (
           <MessageCard message="" role="assistant" time={0} loading />
         )}

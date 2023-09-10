@@ -1,3 +1,4 @@
+export * from "./EmptyStateIcon";
 export * from "./LeftArrowIcon";
 export * from "./MagicWandIcon";
 export * from "./PlusCircleIcon";
