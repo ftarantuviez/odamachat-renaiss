@@ -1,13 +1,19 @@
 "use client";
-import React, { useState } from "react";
+import React, { FC, useState } from "react";
 
 import { Input } from "antd";
-import { BsSend } from "react-icons/bs";
 
-import styles from "./PromptInput.module.scss";
+import { MagicWandIcon, SendIcon } from "../Icons";
+
 import useChatContext from "@/hooks/useChatContext";
 
-export const PromptInput = () => {
+import styles from "./PromptInput.module.scss";
+
+type PromptInputProps = {
+  isNewChat?: boolean;
+};
+
+export const PromptInput: FC<PromptInputProps> = ({ isNewChat }) => {
   const [value, setValue] = useState("");
   const { getNewPrompt } = useChatContext();
 
@@ -28,7 +34,8 @@ export const PromptInput = () => {
         className={styles.promptInput}
         suffix={
           <button type="submit">
-            <BsSend />
+            <SendIcon />
+            {!isNewChat && <MagicWandIcon />}
           </button>
         }
         placeholder="Insertar Prompt"

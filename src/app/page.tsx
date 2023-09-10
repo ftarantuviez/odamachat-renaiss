@@ -20,7 +20,7 @@ export default function Home() {
             prompt para el sistema.
           </p>
 
-          <PromptInput />
+          <PromptInput isNewChat />
         </Card>
         <HistoryCard history={allChatsSaved} />
       </div>

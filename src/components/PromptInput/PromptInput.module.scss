@@ -2,13 +2,7 @@
   color: #cbd5e1;
   border: 2px solid #cbd5e1;
   border-radius: 4px;
-  padding: 10px 16px;
-
-  svg {
-    color: #f97316;
-    width: 18px;
-    height: 18px;
-  }
+  padding: 5px 10px;
 
   button {
     border: none;
@@ -17,5 +11,8 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    svg:nth-child(2) {
+      margin-left: 8px;
+    }
   }
 }

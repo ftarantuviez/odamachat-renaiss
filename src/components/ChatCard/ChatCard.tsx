@@ -1,11 +1,10 @@
 import React, { FC } from "react";
 
-import { AiOutlinePlusCircle } from "react-icons/ai";
-
 import { Card } from "../Card";
 import { Button } from "../Button";
 import { MessageCard } from "../MessageCard";
 import { PromptInput } from "../PromptInput";
+import { PlusCircleIcon } from "../Icons";
 
 import { ChatMessage } from "../../../types/Chat";
 
@@ -29,7 +28,7 @@ export const ChatCard: FC<ChatCardProps> = ({
         <div className={styles.chatCard__header__container}>
           <h5>OdamaChat</h5>
           <Button variant="contained" onClick={handleNewSearch}>
-            <AiOutlinePlusCircle />
+            <PlusCircleIcon />
             Nueva búsqueda
           </Button>
         </div>

@@ -1,9 +1,7 @@
 import React from "react";
 
-import { BiChevronLeft } from "react-icons/bi";
-import { FiSettings, FiSidebar } from "react-icons/fi";
-
 import { Button } from "../Button";
+import { SideBarIcon, SettingsIcon, LeftArrowIcon } from "../Icons";
 
 import styles from "./NavBar.module.scss";
 
@@ -12,16 +10,16 @@ export const NavBar = () => {
     <nav className={styles.navbar}>
       <div className={styles.navbar__left}>
         <Button>
-          <BiChevronLeft />
+          <LeftArrowIcon />
           Atrás
         </Button>
         <Button className={styles.navbar__left__sidebar}>
-          <FiSidebar />
+          <SideBarIcon />
         </Button>
       </div>
       <div className={styles.navbar__right}>
         <Button>
-          <FiSettings />
+          <SettingsIcon />
         </Button>
       </div>
     </nav>
