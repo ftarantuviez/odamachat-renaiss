@@ -1,15 +1,18 @@
 "use client";
 import { createContext, FC, useState } from "react";
-import { ChatProviderProps, ChatProviderValues } from "./types";
-import { ChatMessage, OpenAIResponse } from "../../types/Chat";
+
 import axios from "axios";
+
 import {
   API_KEY,
   BASE_URL,
   MAX_TOKENS,
   OPENAI_MODEL,
   OPENAI_TEMP,
-} from "@/app/constant";
+} from "@/constants";
+
+import { ChatProviderProps, ChatProviderValues } from "./types";
+import { AllChats, Chat, ChatMessage, OpenAIResponse } from "../../types/Chat";
 
 export const ChatContext = createContext<ChatProviderValues>({
   currentChat: [],
@@ -20,6 +23,7 @@ export const ChatContext = createContext<ChatProviderValues>({
 const ChatProvider: FC<ChatProviderProps> = ({ children }) => {
   const [loading, setLoading] = useState<boolean>(false);
   const [currentChat, setCurrentChat] = useState<ChatMessage[]>([]);
+  const [allChats, setAllChats] = useState<Chat[]>([]);
 
   const getNewPrompt = async (query: string) => {
     setLoading(true);
@@ -37,15 +41,10 @@ const ChatProvider: FC<ChatProviderProps> = ({ children }) => {
         max_tokens: MAX_TOKENS,
         messages: updatedChat,
       };
-      /* const { data } = await axios.post<OpenAIResponse>(BASE_URL, body, {
+      const { data } = await axios.post<OpenAIResponse>(BASE_URL, body, {
         headers,
       });
-      const response = data.choices[0]?.message; */
-      const response: ChatMessage = {
-        role: "assistant",
-        content:
-          "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content",
-      };
+      const response = data.choices[0]?.message;
 
       setCurrentChat([...updatedChat, response]);
       setLoading(false);

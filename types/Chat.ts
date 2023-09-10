@@ -3,6 +3,11 @@ export type ChatMessage = {
   content: string;
 };
 
+export type Chat = {
+  id: string;
+  messages: ChatMessage[];
+};
+
 export type OpenAIResponse = {
   id: string;
   object: string;
@@ -19,3 +24,9 @@ export type OpenAIResponse = {
     total_tokens: number;
   };
 };
+
+export type AllChats = {
+  title: string;
+  id: string;
+  time: string;
+}[];
